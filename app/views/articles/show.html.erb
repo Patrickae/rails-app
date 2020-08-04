@@ -1,13 +1,9 @@
 <h1>Article <%=@article.id %></h1>
-<table>
-  <thead>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Description</th>
-  </thead>
-  <tr>
-    <td><%=@article.id%></td>
-    <td><%=@article.title%></td>
-    <td><%=@article.description%></td>
-  </tr>
-<table>
+
+<p><strong>Title: </strong><%= @article.title%></p>
+<p><strong>Description: </strong><%= @article.description%></p>
+<p><strong>Options: </strong>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Delete', article_path,  method: :delete, data: {confirm: "Are you sure?"}%> |
+<%= link_to 'Return to Articles Listing', articles_path%>
+</p>
