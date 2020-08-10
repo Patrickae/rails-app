@@ -1,0 +1,12 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+#home-container{
+  margin-top: 25px;
+  .jumbotron {
+    background-image: asset-url('jumbo-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+}
