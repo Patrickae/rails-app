@@ -1,4 +1,8 @@
+<h1 class='text-center mt-t'>Bloggers</h1>
 <div class="container">
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
@@ -12,7 +16,9 @@
             </h5>
             <p class="card-text"><%= pluralize(user.articles.count, "article")  %></p>
             <%= link_to "View Profile", user_path(user), class: "btn btn-outline-success" %>
-            <%= link_to "Edit User", edit_user_path(user), class: "btn btn-outline-info" %>
+            <% if logged_in? && user == current_user %>
+              <%= link_to "Edit User", edit_user_path(user), class: "btn btn-outline-info" %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(user.created_at) %> ago, 
@@ -22,4 +28,7 @@
       </div>
     </div>
   <% end %>
+  <div class="flickr_pagination mb-4">
+    <%= will_paginate @articles, :container => false %>
+  </div>
 </div>
